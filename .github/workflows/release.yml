@@ -58,10 +58,10 @@ jobs:
       - name : Generate clash text rules
         run: |
           mkdir -p release
-          cat ir.txt | sed -e 's/^/+./' | sed '1s/^/#clash\n/' > release/ir.txt
-          cat ads-and-tracking.txt | sed -e 's/^/+./' | sed '1s/^/#clash\n/' > release/ads-and-tracking.txt
-          cat malware.txt | sed -e 's/^/+./' | sed '1s/^/#clash\n/' > release/malware.txt
-          cat phishing.txt | sed -e 's/^/+./' | sed '1s/^/#clash\n/' > release/phishing.txt
+          cat ir.txt | sed -e 's/^/+./' | sed '1s/^/# clash\n/' > release/ir.txt
+          cat ads-and-tracking.txt | sed -e 's/^/+./' | sed '1s/^/# clash\n/' > release/ads-and-tracking.txt
+          cat malware.txt | sed -e 's/^/+./' | sed '1s/^/# clash\n/' > release/malware.txt
+          cat phishing.txt | sed -e 's/^/+./' | sed '1s/^/# clash\n/' > release/phishing.txt
 
       - name : Generate clash yaml rules
         run: |
