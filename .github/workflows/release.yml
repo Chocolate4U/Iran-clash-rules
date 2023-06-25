@@ -1,4 +1,4 @@
-name: Generate clash Rules files
+name: Generate clash rules files
 
 on:
   workflow_dispatch:
@@ -60,8 +60,8 @@ jobs:
           mkdir -p release
           cat ir.txt | sed -e 's/^/+./' > release/ir.txt
           cat ads-and-tracking.txt | sed -e 's/^/+./' > release/ads-and-tracking.txt
-          cat malware-filter.txt | sed -e 's/^/+./' > release/malware.txt
-          cat phishing-filter.txt | sed -e 's/^/+./' > release/phishing.txt
+          cat malware.txt | sed -e 's/^/+./' > release/malware.txt
+          cat phishing.txt | sed -e 's/^/+./' > release/phishing.txt
 
       - name : Generate clash yaml rules
         run: |
@@ -69,8 +69,8 @@ jobs:
           suffix="'"
           cat ir.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir.yaml
           cat ads-and-tracking.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ads-and-tracking.yaml
-          cat malware-filter.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware.yaml
-          cat phishing-filter.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing.yaml
+          cat malware.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware.yaml
+          cat phishing.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing.yaml
 
       - name: Release and upload assets
         uses: softprops/action-gh-release@v1
