@@ -3,7 +3,7 @@ name: Generate clash rules files
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 9 * * *"
+    - cron: "20 8 * * *"
 
 jobs:
   build:
@@ -16,6 +16,7 @@ jobs:
         run: |
           echo "RELEASE_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
           echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+          echo "RELEASE_DATE=$(date +'%F %T %Z')" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: |
@@ -26,6 +27,7 @@ jobs:
         run: |
           echo -e "ir\nxn--mgba3a4f16a" > ir-temp.txt
           curl -sSL https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/domains.txt | grep -Ev ".+\.ir$" | cat - ir-temp.txt | sort -u > ir.txt
+          echo "TOTAL_IR=$(cat ir.txt | wc -l)" >> $GITHUB_ENV
           rm -f ir-temp.txt
 
       - name: Generate ads and tracking domain list
@@ -45,15 +47,18 @@ jobs:
           curl -sSL https://raw.githubusercontent.com/notracking/hosts-blocklists-scripts/master/hostnames.whitelist.txt >> whitelist-raw.txt
           cat whitelist-raw.txt | sed -e 's/^\(\*\|\.\|\-\)*//g' -e '/!\|@\|#\|*\|_\|\[\|]/d' -e '/^\s*$/d' | awk '{$1=$1};1' | dos2unix | sort -u > whitelist-temp.txt
           comm -23 ads-and-tracking-temp.txt whitelist-temp.txt > ads-and-tracking.txt
+          echo "TOTAL_ADS=$(cat ads-and-tracking.txt | wc -l)" >> $GITHUB_ENV
           rm -f ads-and-tracking-raw.txt whitelist-raw.txt ads-and-tracking-temp.txt whitelist-temp.txt
 
       - name: Generate malware domain list
         run: |
           curl -sSL https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-hosts.txt | sed -e 's/^\(\*\|\.\|\-\|0.0.0.0 \)*//g' -e '/!\|@\|#\|*\|_\|\[\|]/d' -e '/^\s*$/d' | awk '{$1=$1};1' | dos2unix | sort -u > malware.txt
+          echo "TOTAL_MALWARE=$(cat malware.txt | wc -l)" >> $GITHUB_ENV
 
       - name: Generate phishing domain list
         run: |
           curl -sSL https://malware-filter.gitlab.io/malware-filter/phishing-filter-hosts.txt | sed -e 's/^\(\*\|\.\|\-\|0.0.0.0 \)*//g' -e '/!\|@\|#\|*\|_\|\[\|]/d' -e '/^\s*$/d' | awk '{$1=$1};1' | dos2unix | sort -u > phishing.txt
+          echo "TOTAL_PHISHING=$(cat phishing.txt | wc -l)" >> $GITHUB_ENV
 
       - name : Generate clash text rules
         run: |
@@ -71,12 +76,21 @@ jobs:
           cat ads-and-tracking.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ads-and-tracking.yaml
           cat malware.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware.yaml
           cat phishing.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing.yaml
+          
+      - name: Generate Release Notes
+        run: | 
+          echo "Updated on ${{ env.RELEASE_DATE }}" > RELEASE_NOTES
+          echo "Number of IR Domains (Excluding `.ir` Domains) -> ${{ env.TOTAL_IR }}" >> RELEASE_NOTES
+          echo "Number of Ads and Tracking Domains -> ${{ env.TOTAL_ADS }}" >> RELEASE_NOTES
+          echo "Number of Malware Domains -> ${{ env.TOTAL_MALWARE }}" >> RELEASE_NOTES
+          echo "Number of Phishing Domains -> ${{ env.TOTAL_PHISHING }}" >> RELEASE_NOTES
 
       - name: Release and upload assets
         uses: softprops/action-gh-release@v1
         with:
           name: ${{ env.RELEASE_NAME }}
           tag_name: ${{ env.TAG_NAME }}
+          body_path: RELEASE_NOTES
           draft: false
           prerelease: false
           files: |
