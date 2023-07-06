@@ -3,7 +3,7 @@ name: Generate clash rules files
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 5 * * *"
+    - cron: "50 5 * * *"
 
 jobs:
   build:
@@ -18,86 +18,32 @@ jobs:
           echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
           echo "RELEASE_DATE=$(date +'%F %T %Z')" >> $GITHUB_ENV
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install dos2unix
-
-      - name: Generate ir domain list
-        run: |
-          echo -e "ir\nxn--mgba3a4f16a" > ir-temp.txt
-          curl -sSL https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/domains.txt | grep -Ev ".+\.ir$" | cat - ir-temp.txt | sort -u > ir.txt
-          echo "TOTAL_IR=$(cat ir.txt | wc -l)" >> $GITHUB_ENV
-          rm -f ir-temp.txt
-
-      - name: Generate ads and tracking domain list
-        run: |
-          curl -sSL https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerHosts.txt > ads-and-tracking-raw.txt
-          curl -sSL https://small.oisd.nl/domainswild2 >> ads-and-tracking-raw.txt
-          curl -sSL https://raw.githubusercontent.com/badmojr/1Hosts/master/Lite/wildcards.txt >> ads-and-tracking-raw.txt
-          curl -sSL https://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml >> ads-and-tracking-raw.txt
-          curl -sSL https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Apple-AdBlock.txt >> ads-and-tracking-raw.txt
-          curl -sSL https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Huawei-AdBlock.txt >> ads-and-tracking-raw.txt
-          curl -sSL https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Samsung-AdBlock.txt >> ads-and-tracking-raw.txt
-          curl -sSL https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Xiaomi-Extension.txt >> ads-and-tracking-raw.txt
-          cat ads-and-tracking-raw.txt | sed -e 's/^\(\*\|\.\|\-\|0.0.0.0 \)*//g' -e '/!\|@\|#\|*\|_\|\[\|]\|\[\|\([0-9]\{1,3\}\.\)\{3\}[0-9]\{1,3\}\|10.10.34/d' -e '/^\s*$/d' | awk '{$1=$1};1' | dos2unix | sort -u > ads-and-tracking-temp.txt
-          curl -sSL https://raw.githubusercontent.com/hagezi/dns-blocklists/main/whitelist.txt > whitelist-raw.txt
-          curl -sSL https://raw.githubusercontent.com/hagezi/dns-blocklists/main/whitelist-referral.txt >> whitelist-raw.txt
-          curl -sSL https://local.oisd.nl/commonly_whitelisted.php >> whitelist-raw.txt
-          curl -sSL https://raw.githubusercontent.com/notracking/hosts-blocklists-scripts/master/hostnames.whitelist.txt >> whitelist-raw.txt
-          cat whitelist-raw.txt | sed -e 's/^\(\*\|\.\|\-\)*//g' -e '/!\|@\|#\|*\|_\|\[\|]/d' -e '/^\s*$/d' | awk '{$1=$1};1' | dos2unix | sort -u > whitelist-temp.txt
-          comm -23 ads-and-tracking-temp.txt whitelist-temp.txt > ads-and-tracking.txt
-          echo "TOTAL_ADS=$(cat ads-and-tracking.txt | wc -l)" >> $GITHUB_ENV
-          rm -f ads-and-tracking-raw.txt whitelist-raw.txt ads-and-tracking-temp.txt whitelist-temp.txt
-
-      - name: Generate malware domain list
-        run: |
-          curl -sSL https://urlhaus.abuse.ch/downloads/hostfile | sed -e 's/^\(\*\|\.\|\-\|0.0.0.0\|127.0.0.1\)*//g' -e '/!\|@\|#\|*\|_\|\[\|]/d' -e '/^\s*$/d' | awk '{$1=$1};1' | dos2unix | sort -u > malware.txt
-          echo "TOTAL_MALWARE=$(cat malware.txt | wc -l)" >> $GITHUB_ENV
-
-      - name: Generate phishing domain list
-        run: |
-          curl -sSL https://malware-filter.gitlab.io/malware-filter/phishing-filter-hosts.txt | sed -e 's/^\(\*\|\.\|\-\|0.0.0.0\|127.0.0.1\)*//g' -e '/!\|@\|#\|*\|_\|\[\|]/d' -e '/^\s*$/d' | awk '{$1=$1};1' | dos2unix | sort -u > phishing.txt
-          echo "TOTAL_PHISHING=$(cat phishing.txt | wc -l)" >> $GITHUB_ENV
+      - name: Create release directory
+        run: mkdir release
 
       - name : Generate clash text rules
         run: |
-          mkdir -p release
-          cat ir.txt | sed -e 's/^/+./' | sed '1s/^/# clash\n/' > release/ir.txt
-          cat ads-and-tracking.txt | sed -e 's/^/+./' | sed '1s/^/# clash\n/' > release/ads-and-tracking.txt
-          cat malware.txt | sed -e 's/^/+./' | sed '1s/^/# clash\n/' > release/malware.txt
-          cat phishing.txt | sed -e 's/^/+./' | sed '1s/^/# clash\n/' > release/phishing.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir.txt | sed -e 's/^/./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ir.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ads.txt | sed -e 's/^/./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ads.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/malware.txt | sed -e 's/^/./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/malware.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/phishing.txt | sed -e 's/^/./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/phishing.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/cryptominers.txt | sed -e 's/^/./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/cryptominers.txt
 
       - name : Generate clash yaml rules
         run: |
-          prefix="  - '+."
+          prefix="  - '."
           suffix="'"
-          cat ir.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir.yaml
-          cat ads-and-tracking.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ads-and-tracking.yaml
-          cat malware.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware.yaml
-          cat phishing.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing.yaml
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir.yaml
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ads.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ads.yaml
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/malware.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware.yaml
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/phishing.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing.yaml
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/cryptominers.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/cryptominers.yaml
           
       - name: Generate Release Notes
         run: | 
-          echo "Updated on ${{ env.RELEASE_DATE }}" > RELEASE_NOTES
-          echo "Number of IR Domains (Excluding .ir Domains) -> ${{ env.TOTAL_IR }}" >> RELEASE_NOTES
-          echo "Number of Ads and Tracking Domains -> ${{ env.TOTAL_ADS }}" >> RELEASE_NOTES
-          echo "Number of Malware Domains -> ${{ env.TOTAL_MALWARE }}" >> RELEASE_NOTES
-          echo "Number of Phishing Domains -> ${{ env.TOTAL_PHISHING }}" >> RELEASE_NOTES
+          echo "* Updated on ${{ env.RELEASE_DATE }}" > RELEASE_NOTES
+          echo "* Based on [Iran-v2ray-rules](https://github.com/Chocolate4U/Iran-v2ray-rules)" >> RELEASE_NOTES
 
-      - name: Release and upload assets
-        uses: softprops/action-gh-release@v1
-        with:
-          name: ${{ env.RELEASE_NAME }}
-          tag_name: ${{ env.TAG_NAME }}
-          body_path: RELEASE_NOTES
-          draft: false
-          prerelease: false
-          files: |
-            ./release/*
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
       - name: Push assets to release branch
         run: |
           cd release || exit 1
@@ -116,3 +62,17 @@ jobs:
           for file in $(ls); do
             curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/${file}"
           done
+
+      - name: Release and upload assets
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ env.RELEASE_NAME }}
+          tag_name: ${{ env.TAG_NAME }}
+          body_path: RELEASE_NOTES
+          draft: false
+          prerelease: false
+          files: ./release/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+
