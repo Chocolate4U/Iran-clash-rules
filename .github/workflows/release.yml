@@ -23,15 +23,15 @@ jobs:
 
       - name : Generate clash text rules
         run: |
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir.txt | sed -e 's/^/./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ir.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ads.txt | sed -e 's/^/./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ads.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/malware.txt | sed -e 's/^/./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/malware.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/phishing.txt | sed -e 's/^/./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/phishing.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/cryptominers.txt | sed -e 's/^/./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/cryptominers.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir.txt | sed -e 's/^/+./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ir.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ads.txt | sed -e 's/^/+./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ads.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/malware.txt | sed -e 's/^/+./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/malware.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/phishing.txt | sed -e 's/^/+./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/phishing.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/cryptominers.txt | sed -e 's/^/+./' | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/cryptominers.txt
 
       - name : Generate clash yaml rules
         run: |
-          prefix="  - '."
+          prefix="  - '+."
           suffix="'"
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir.yaml
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ads.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ads.yaml
