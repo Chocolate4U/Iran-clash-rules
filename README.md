@@ -19,7 +19,7 @@ This is an Enhanced set of Clash/Clash.Meta routing rules optimized for Iranian 
 `cryptominers.txt` and `cryptominers.yaml`
 : Includes a list of cryptocurrency miners that run in the background of a web browser and affect system performance.
 
-`apps.txt` and `aps.yaml`
+`apps.txt` and `apps.yaml`
 : Includes a list of Persian Android apps.
 
 # How to download
