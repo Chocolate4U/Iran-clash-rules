@@ -103,28 +103,28 @@ rule-providers:
     format: text
     behavior: domain
     url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware.txt"
-    path: ./ruleset/ads.txt
+    path: ./ruleset/malware.txt
     interval: 86400
   phishing:
     type: http
     format: text
     behavior: domain
     url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/phishing.txt"
-    path: ./ruleset/ads.txt
+    path: ./ruleset/phishing.txt
     interval: 86400
   cryptominers:
     type: http
     format: text
     behavior: domain
     url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/cryptominers.txt"
-    path: ./ruleset/ads.txt
+    path: ./ruleset/cryptominers.txt
     interval: 86400
   apps:
     type: http
     format: text
     behavior: classical
     url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt"
-    path: ./ruleset/ads.txt
+    path: ./ruleset/apps.txt
     interval: 86400
 
 rules :
