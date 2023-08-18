@@ -21,6 +21,7 @@ jobs:
       - name: Fetch source lists from Iran-v2ray-rules
         run: |
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir.txt > ir.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/private.txt > private.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ads.txt > ads.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/malware.txt > malware.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/phishing.txt > phishing.txt
@@ -42,6 +43,7 @@ jobs:
       - name: Generate clash text rules
         run: |
           cat ir.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ir.txt
+          cat private.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/private.txt
           cat ads.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ads.txt
           cat malware.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/malware.txt
           cat phishing.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/phishing.txt
@@ -51,9 +53,11 @@ jobs:
       - name: Generate clash yaml rules
         run: |
           apps_prefix="  - PROCESS-NAME,"
+          lan_prefix="  - '"
           prefix="  - '+."
           suffix="'"
           cat ir.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir.yaml
+          cat private.txt | awk -v prefix="$lan_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/private.yaml
           cat ads.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ads.yaml
           cat malware.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware.yaml
           cat phishing.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing.yaml
@@ -63,12 +67,12 @@ jobs:
       - name: Generate Release Notes
         run: | 
           echo "* Updated on ${{ env.RELEASE_DATE }}" > RELEASE_NOTES
-          echo "* Number of IR Domains (Excluding .ir Domains) -> ${{ env.TOTAL_IR }}" >> RELEASE_NOTES
-          echo "* Number of Ad Domains -> ${{ env.TOTAL_ADS }}" >> RELEASE_NOTES
-          echo "* Number of Malware Domains -> ${{ env.TOTAL_MALWARE }}" >> RELEASE_NOTES
-          echo "* Number of Phishing Domains -> ${{ env.TOTAL_PHISHING }}" >> RELEASE_NOTES
-          echo "* Number of CryptoMiner Domains -> ${{ env.TOTAL_CRYPTO }}" >> RELEASE_NOTES
-          echo "* Number of Android Apps -> ${{ env.TOTAL_APPS }}" >> RELEASE_NOTES
+          echo "* IR Domains (Excluding .ir Domains) -> ${{ env.TOTAL_IR }}" >> RELEASE_NOTES
+          echo "* Ad Domains -> ${{ env.TOTAL_ADS }}" >> RELEASE_NOTES
+          echo "* Malware Domains -> ${{ env.TOTAL_MALWARE }}" >> RELEASE_NOTES
+          echo "* Phishing Domains -> ${{ env.TOTAL_PHISHING }}" >> RELEASE_NOTES
+          echo "* CryptoMiner Domains -> ${{ env.TOTAL_CRYPTO }}" >> RELEASE_NOTES
+          echo "* Android Apps -> ${{ env.TOTAL_APPS }}" >> RELEASE_NOTES
 
       - name: Push assets to release branch
         run: |
