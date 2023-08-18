@@ -45,7 +45,7 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 - `derakcloud.txt`, `derakcloud.yaml`
   Contains IP addresses of Derak.cloud CDN.
 
-- `iranserver.txt`, `iranserver.txt`
+- `iranserver.txt`, `iranserver.yaml`
   Contains IP addresses of IranServer.com CDN.
 
 # :arrow_down: How to download
@@ -75,22 +75,26 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
   `yaml`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml) 
 
 - IRcidr  
-  `text`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt)  
-  `yaml`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml) 
+  `text`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.txt)  
+  `yaml`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.yaml) 
+
+- Private  
+  `text`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.txt)  
+  `yaml`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.yaml) 
 
 - ArvanCloud  
-  `text`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt)  
-  `yaml`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml) 
+  `text`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.txt)  
+  `yaml`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.yaml) 
 
 - DerakCloud  
-  `text`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt)  
-  `yaml`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml) 
+  `text`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.txt)  
+  `yaml`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.yaml) 
 
 - IranServer  
-  `text`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt)  
-  `yaml`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml)
+  `text`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.txt)  
+  `yaml`[https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.yaml)
 
-## <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/jsdelivr/white"><source media="(prefers-color-scheme: light)" srcset="https://cdn.simpleicons.org/jsdelivr/dark"><img height="32" width="32" alt="github logo in dark and light mode." src="https://cdn.simpleicons.org/jsdelivr/dark"></picture> From jsdelivr CDN
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/jsdelivr/white"><source media="(prefers-color-scheme: light)" srcset="https://cdn.simpleicons.org/jsdelivr/dark"><img height="32" width="32" alt="github logo in dark and light mode." src="https://cdn.simpleicons.org/jsdelivr/dark"></picture> From jsDelivr CDN
 - IR  
   `text`[https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.txt](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.txt)  
   `yaml`[https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.yaml](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.yaml) 
@@ -221,13 +225,15 @@ rule-providers:
     interval: 86400
 
 rules :
+  - RULE-SET,private,DIRECT
+  - RULE-SET,apps,DIRECT
   - RULE-SET,ads,REJECT
   - RULE-SET,malware,REJECT
   - RULE-SET,phishing,REJECT
   - RULE-SET,cryptominers,REJECT
-  - RULE-SET,apps,DIRECT
   - RULE-SET,ir,DIRECT
   - RULE-SET,ircidr,DIRECT
+  - RULE-SET,arvancloud,DIRECT
   - MATCH,PROXY
 ```
 
@@ -313,13 +319,15 @@ rule-providers:
     interval: 86400
 
 rules :
+  - RULE-SET,private,DIRECT
+  - RULE-SET,apps,DIRECT
   - RULE-SET,ads,REJECT
   - RULE-SET,malware,REJECT
   - RULE-SET,phishing,REJECT
   - RULE-SET,cryptominers,REJECT
-  - RULE-SET,apps,DIRECT
   - RULE-SET,ir,DIRECT
   - RULE-SET,ircidr,DIRECT
+  - RULE-SET,arvancloud,DIRECT
   - MATCH,PROXY
 ```
 :warning: Currently there is problem with "ClashMetaForAndroid" version 2.8.6 and above, in which it can't match android package names thus `- RULE-SET,apps,DIRECT` is completely ineffective for now.
