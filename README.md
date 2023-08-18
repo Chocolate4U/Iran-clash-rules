@@ -7,8 +7,8 @@
 # :writing_hand: Introduction
 This is an Enhanced and All-in-One set of geo-location routing files optimized for Iranian users to use in Clash/Clash.Meta. 
 
-:information_source: For Sing-Box geolocation rules please refer to [Iran V2Ray Rules](https://github.com/Chocolate4U/Iran-v2ray-rules)  
-:information_source: For Clash geolocation rules please refer to [Iran Sing-Box Rules](https://github.com/Chocolate4U/Iran-sing-box-rules)
+:bulb: For V2Ray geolocation rules please refer to [Iran V2Ray Rules](https://github.com/Chocolate4U/Iran-v2ray-rules)  
+:bulb: For Sing-Box geolocation rules please refer to [Iran Sing-Box Rules](https://github.com/Chocolate4U/Iran-sing-box-rules)
 
 # :page_with_curl: Categories
 :information_source: There are two clash rule formats, `text` and `yaml`. `text` is preferred as it's faster to process by Clash and is supported in Clash Permium 1.15.0+ and clash.Meta 1.14.4+ . If you are using an older version of Clash/Clash.Meta, you should use `yaml` format. 
