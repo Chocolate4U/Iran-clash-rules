@@ -4,6 +4,13 @@
   <img alt="a logo for iran clash rules in both dark and light mode" src="assets/logo-dark.png">
 </picture>
 
+<p align="center">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Chocolate4U/Iran-clash-rules/release.yml?event=schedule&logo=github">
+<img alt="GitHub release" src="https://img.shields.io/github/v/release/Chocolate4U/Iran-clash-rules">
+<img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/Chocolate4U/Iran-clash-rules">
+<img alt="license" src="https://img.shields.io/github/license/Chocolate4U/Iran-clash-rules">
+</p>
+
 # :writing_hand: Introduction
 This is an Enhanced and All-in-One set of geo-location routing files optimized for Iranian users to use in Clash/Clash.Meta. 
 
@@ -11,7 +18,9 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 :bulb: For Sing-Box geolocation rules please refer to [Iran Sing-Box Rules](https://github.com/Chocolate4U/Iran-sing-box-rules)
 
 # :page_with_curl: Categories
-:information_source: There are two clash rule formats, `text` and `yaml`. `text` is preferred as it's faster to process by Clash and is supported in Clash Permium 1.15.0+ and clash.Meta 1.14.4+ . If you are using an older version of Clash/Clash.Meta, you should use `yaml` format. 
+
+> [!IMPORTANT]
+> There are two clash rule formats, `text` and `yaml`. `text` is preferred as it's faster to process by Clash and is supported in Clash Permium 1.15.0+ and clash.Meta 1.14.4+ . If you are using an older version of Clash/Clash.Meta, you should use `yaml` format.
 
 ## Domain Rules  
 - `ir.txt`, `ir.yaml`  
