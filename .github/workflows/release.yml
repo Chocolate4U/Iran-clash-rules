@@ -12,6 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+          cache: false
+
       - name: Set ENV variables
         run: |
           echo "RELEASE_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
@@ -20,41 +26,81 @@ jobs:
 
       - name: Fetch source lists from Iran-v2ray-rules
         run: |
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip.dat > geoip.dat
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip-lite.dat > geoip-lite.dat
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir.txt > ir.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/private.txt > private.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ads.txt > ads.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/category-ads-all.txt > category-ads-all.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/malware.txt > malware.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/phishing.txt > phishing.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/cryptominers.txt > cryptominers.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/social.txt > social.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/nsfw.txt > nsfw.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-Android-Packages/main/packages.md | sed -e 's/\*\*Package name\:\*\*//g' -e '/#/d' -e '/^\s*$/d' | awk '{$1=$1};1' | sort -u > apps.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/arvancloud.txt > arvancloud.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/derakcloud.txt > derakcloud.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/iranserver.txt > iranserver.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/cloudflare.txt > cloudflare.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/google.txt > google.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/amazon.txt > amazon.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/microsoft.txt > microsoft.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/bing.txt > bing.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/github.txt > github.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/facebook.txt > facebook.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/twitter.txt > twitter.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/telegram.txt > telegram.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/oracle.txt > oracle.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/digitalocean.txt > digitalocean.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/linode.txt > linode.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/openai.txt > openai.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/phishing.txt > phishing.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/malware.txt > malware.txt
 
       - name: Calculate Number of rules
         run: |
-          echo "TOTAL_IR=$(cat ir.txt | wc -l)" >> $GITHUB_ENV
-          echo "TOTAL_ADS=$(cat ads.txt | wc -l)" >> $GITHUB_ENV
-          echo "TOTAL_MALWARE=$(cat malware.txt | wc -l)" >> $GITHUB_ENV
-          echo "TOTAL_PHISHING=$(cat phishing.txt | wc -l)" >> $GITHUB_ENV
-          echo "TOTAL_CRYPTO=$(cat cryptominers.txt | wc -l)" >> $GITHUB_ENV
           echo "TOTAL_APPS=$(cat apps.txt | wc -l)" >> $GITHUB_ENV
 
       - name: Create release directory
         run: mkdir release
+      
+      - name: Generate Meta-geoip
+        run: |
+          go install -v github.com/metacubex/geo/cmd/geo@master
+          $(go env GOPATH)/bin/geo convert ip -i v2ray -o meta -f geoip.metadb ./geoip.dat
+          $(go env GOPATH)/bin/geo convert ip -i v2ray -o meta -f geoip-lite.metadb ./geoip-lite.dat
+          mv geoip.metadb geoip-lite.metadb release
 
       - name: Generate clash text rules
         run: |
           cat ir.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ir.txt
           cat private.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/private.txt
           cat ads.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ads.txt
+          cat category-ads-all.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/category-ads-all.txt
           cat malware.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/malware.txt
           cat phishing.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/phishing.txt
           cat cryptominers.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/cryptominers.txt
+          cat social.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/social.txt
+          cat nsfw.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/nsfw.txt
           cat apps.txt | sed -e 's/^/PROCESS-NAME,/' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/apps.txt
           cat arvancloud.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/arvancloud.txt
           cat derakcloud.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/derakcloud.txt
           cat iranserver.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/iranserver.txt
+          cat cloudflare.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/cloudflare.txt
+          cat google.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/google.txt
+          cat amazon.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/amazon.txt
+          cat microsoft.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/microsoft.txt
+          cat bing.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/bing.txt
+          cat github.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/github.txt
+          cat facebook.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/facebook.txt
+          cat twitter.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/twitter.txt
+          cat telegram.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/telegram.txt
+          cat oracle.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/oracle.txt
+          cat digitalocean.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/digitalocean.txt
+          cat linode.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/linode.txt
+          cat openai.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/openai.txt
+          cat phishing.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/phishing.txt
+          cat malware.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/malware.txt
 
       - name: Generate clash yaml rules
         run: |
@@ -65,22 +111,36 @@ jobs:
           cat ir.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir.yaml
           cat private.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/private.yaml
           cat ads.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ads.yaml
+          cat category-ads-all.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/category-ads-all.yaml
           cat malware.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware.yaml
           cat phishing.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing.yaml
           cat cryptominers.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/cryptominers.yaml
+          cat social.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/social.yaml
+          cat nsfw.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/nsfw.yaml
           cat apps.txt | awk -v prefix="$apps_prefix" '{print prefix $0}' | sed '1s/^/payload:\n/' > release/apps.yaml
           cat arvancloud.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/arvancloud.yaml
           cat derakcloud.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/derakcloud.yaml
           cat iranserver.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/iranserver.yaml
+          cat cloudflare.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/cloudflare.txt
+          cat google.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/google.txt
+          cat amazon.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/amazon.txt
+          cat microsoft.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/microsoft.txt
+          cat bing.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/bing.txt
+          cat github.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/github.txt
+          cat facebook.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/facebook.txt
+          cat twitter.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/twitter.txt
+          cat telegram.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/telegram.txt
+          cat oracle.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/oracle.txt
+          cat digitalocean.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/digitalocean.txt
+          cat linode.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/linode.txt
+          cat openai.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/openai.txt
+          cat phishing.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing.txt
+          cat malware.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware.txt
   
       - name: Generate Release Notes
         run: | 
           echo "* Updated on ${{ env.RELEASE_DATE }}" > RELEASE_NOTES
-          echo "* IR Domains (Excluding .ir Domains) -> ${{ env.TOTAL_IR }}" >> RELEASE_NOTES
-          echo "* Ad Domains -> ${{ env.TOTAL_ADS }}" >> RELEASE_NOTES
-          echo "* Malware Domains -> ${{ env.TOTAL_MALWARE }}" >> RELEASE_NOTES
-          echo "* Phishing Domains -> ${{ env.TOTAL_PHISHING }}" >> RELEASE_NOTES
-          echo "* CryptoMiner Domains -> ${{ env.TOTAL_CRYPTO }}" >> RELEASE_NOTES
+          echo "* Based on [Iran-v2ray-rules](https://github.com/Chocolate4U/Iran-v2ray-rules)" >> RELEASE_NOTES
           echo "* Android Apps -> ${{ env.TOTAL_APPS }}" >> RELEASE_NOTES
 
       - name: Push assets to release branch

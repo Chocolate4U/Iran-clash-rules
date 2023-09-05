@@ -27,6 +27,9 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
   Contains non-ir TLD Iranian domains (e.g. `.com` `.net` `.org` etc.) and rules to bypass all `.ir` domains.
 
 - `ads.txt`, `ads.yaml`  
+  Contains a list of Persian advertisement and tracking domains.
+
+- `category-ads-all.txt`, `category-ads-all.yaml`  
   Contains a curated list of Persian and Foreign advertisement and tracking domains based on multiple sources. It is optimized to has as low as possible false positives while also retain small size and efficiency.
 
 - `malware.txt`, `malware.yaml`  
@@ -37,6 +40,12 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 
 - `cryptominers.txt`, `cryptominers.yaml`  
   Contains a list of cryptocurrency miners that run in the background of a web browser and affect system performance.
+
+- `social.txt`,`social.yaml`  
+  Contains Domain Addresses of popular social media platforms, including `Facebook`, `Instagram`, `Whatsapp`, `Twitter`, `LinkedIn`, `MySpace`, `Pinterest`, `Tumblr`, `Reddit`, `TikTok`, `clubhouse`.
+
+- `nsfw.txt`,`nsfw.yaml`
+  Contains a list of porn and gambling websites.
 
 - `apps.txt`, `apps.yaml`  
   contains a list of Persian Android apps.
@@ -57,15 +66,69 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 - `iranserver.txt`, `iranserver.yaml`  
   Contains IP addresses of IranServer.com CDN.
 
+- `cloudflare.txt`, `cloudflare.yaml`  
+  Contains IP addresses of ClouFlare CDN.
+
+- `google.txt`, `google.yaml`  
+  Contains IP addresses of Google, GoogleCloud and GoogleBot.
+
+- `amazon.txt`, `amazon.yaml`  
+  Contains IP addresses of Amazon and Amazon Web Services (AWS).
+
+- `microsoft.txt`, `microsoft.yaml`  
+  Contains IP addresses of Microsoft and Azure Platform.
+
+- `bing.txt`, `bing.yaml`  
+  Contains IP addresses of Bing and Bingbot.
+
+- `github.txt`, `github.yaml`  
+  Contains IP addresses of GitHub.
+
+- `facebook.txt`, `facebook.yaml`  
+  Contains IP addresses of Meta ecosystem, including Facebook, Instagram and WhatsApp.
+
+- `twitter.txt`, `twitter.yaml`  
+  Contains IP addresses of Twitter (now called X!).
+
+- `telegram.txt`, `telegram.yaml`  
+  Contains IP addresses of Telegram Messenger.
+
+- `oracle.txt`, `oracle.yaml`  
+  Contains IP addresses of Oracle Cloud.
+
+- `digitalocean.txt`, `digitalocean.yaml`  
+  Contains IP addresses of DigitalOcean related services.
+
+- `linode.txt`, `linode.yaml`  
+  Contains IP addresses of Linode related services.
+
+- `openai.txt`, `openai.yaml`  
+  Contains IP addresses of OpenAI and ChatGPT.
+
+- `phishing.txt`, `phishing.yaml`  
+  Contains Phishing IP addresses.
+
+- `malware.txt`, `malware.yaml`  
+  Contains Active Malware IP addresses.
+
+## Meta GeoIP
+> [!NOTE]
+> Only available in Clash.Meta .
+GeoIP database in Clash.Meta format.  
+- `geoip.metadb`  
+  Same as [GeoIP](https://github.com/Chocolate4U/Iran-v2ray-rules#geoip) but in Clash.Meta format.
+- `geoip-lite.metadb`  
+  Same as [GeoIP-Lite](https://github.com/Chocolate4U/Iran-v2ray-rules#geoip-lite) but in Clash.Meta format.
+
 # :arrow_down: How to download
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/github/white"><source media="(prefers-color-scheme: light)" srcset="https://cdn.simpleicons.org/github/dark"><img height="32" width="32" alt="github logo in dark and light mode." src="https://cdn.simpleicons.org/github/dark"></picture> From GitHub  
 - IR  
   - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.txt)  
   - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.yaml) 
 
-- Ads  
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ads.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ads.txt)  
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ads.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ads.yaml) 
+- Category-ads-all  
+  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.txt)  
+  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.yaml) 
 
 - Malware  
   - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware.txt)  
@@ -108,9 +171,9 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
   - `text` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.txt](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.txt)  
   - `yaml` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.yaml](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.yaml) 
 
-- Ads  
-  - `text` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ads.txt](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ads.txt)  
-  - `yaml` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ads.yaml](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ads.yaml) 
+- Category-ads-all  
+  - `text` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/category-ads-all.txt](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/category-ads-all.txt)  
+  - `yaml` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/category-ads-all.yaml](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/category-ads-all.yaml) 
 
 - Malware  
   - `text` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/malware.txt](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/malware.txt)  
@@ -342,8 +405,33 @@ rules :
 > [!NOTE]
 > Currently there is problem with "ClashMetaForAndroid" version 2.8.6 and above, in which it can't match android package names thus `- RULE-SET,apps,DIRECT` is completely ineffective for now.
 
+## Only CLash.Meta
+Add this to the top of your configuration.  
+```
+geox-url:
+  geoip: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat"
+  geosite: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat"
+  mmdb: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/geoip.metadb"
+```
+Usage:  
+```
+rules:
+  - GEOSITE,category-ads-all,REJECT
+  - GEOSITE,malware,REJECT
+  - GEOSITE,phishing,REJECT
+  - GEOSITE,cryptominers,REJECT
+  - GEOIP,malware,REJECT
+  - GEOIP,phishing,REJECT
+  - GEOSITE,ir,DIRECT
+  - GEOIP,private,DIRECT,no-resolve
+  - GEOIP,ir,DIRECT
+  - GEOIP,arvancloud,DIRECT
+  - MATCH,PROXY
+```
+
 # :information_desk_person: How is this made?  
-Source files are pulled from [Iran V2Ray Rules](https://github.com/Chocolate4U/Iran-v2ray-rules) and get converted to clash `text` and `yaml` format by a github actions workflow.
+Source files are pulled from [Iran V2Ray Rules](https://github.com/Chocolate4U/Iran-v2ray-rules) and get converted to clash `text` and `yaml` format by a github actions workflow.  
+`geoip.metadb` and `geoip-lite.metadb` are generated from `geoip.dat` and `geoip-lite.dat` in [Iran-v2ray-rules](https://github.com/Chocolate4U/Iran-v2ray-rules) repository using source code from [metacubex/geo](https://github.com/metacubex/geo).
 
 # :handshake: Contribution
 All contributions are welcome and appreciated. You can contribute to this project in 2 ways:  
@@ -364,13 +452,18 @@ All rights are reserved for All upstream sources used in this project according 
 
 # :package: Sources
 ## GeoIP
-| Source      | Maintainer  | Home Page                                                                                 | License                                                                              | Category          |
-| ----------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------------- |
-| GeoLite2    | MaxMind     | [Home Page](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data)                 | [CC BY-SA 4.0](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data#license) | ir                |
-| ITO GOV     | ITO GOV     | [Home Page](https://eservices.ito.gov.ir/Page/IPListMessenger)                            | N/A                                                                                  | ir(messenger IPs) |
-| Arvan Cloud | Arvan Cloud | [Home Page](https://www.arvancloud.ir/en/dev/ips)                                         | All rights reserved                                                                  | arvancloud        |
-| Derak Cloud | Derak Cloud | [Home Page](https://derak.cloud/لیست-بازه-های-ip)                                         | All rights reserved                                                                  | derakcloud        |
-| IranServer  | IranServer  | [Home Page](https://docs.iranserver.com/irserver-cloud/cdn/allow-iranserver-ip-addresses) | All rights reserved                                                                  | iranserver        |
+| Source                 | Maintainer           | Home Page                                                                                 | License                                                                              | Category          |
+| ---------------------- | -------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------------- |
+| GeoLite2               | MaxMind              | [Home Page](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data)                 | [CC BY-SA 4.0](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data#license) | ir                |
+| ITO GOV                | ITO GOV              | [Home Page](https://eservices.ito.gov.ir/Page/IPListMessenger)                            | N/A                                                                                  | ir(messenger IPs) |
+| Arvan Cloud            | Arvan Cloud          | [Home Page](https://www.arvancloud.ir/en/dev/ips)                                         | All rights reserved                                                                  | arvancloud        |
+| Derak Cloud            | Derak Cloud          | [Home Page](https://derak.cloud/لیست-بازه-های-ip)                                         | All rights reserved                                                                  | derakcloud        |
+| IranServer             | IranServer           | [Home Page](https://docs.iranserver.com/irserver-cloud/cdn/allow-iranserver-ip-addresses) | All rights reserved                                                                  | iranserver        |
+| Cloudflare             | Cloudflare           | [Home Page](https://www.cloudflare.com/ips)                                               | All rights reserved                                                                  | cloudflare        |
+| Telegram               | Telegram             | [Home Page](https://core.telegram.org/resources/cidr.txt)                                 | All rights reserved                                                                  | Telegram          |
+| URLhaus                | abuse.ch             | [Home Page](https://urlhaus.abuse.ch)                                                     | [CC0](https://urlhaus.abuse.ch/api/#tos)                                             | malware           |
+| Phishing URL Blocklist | malware-filter Group | [Home Page](https://gitlab.com/malware-filter/phishing-filter)                            | [MIT](https://gitlab.com/malware-filter/phishing-filter/-/blob/main/LICENSE)         | phishing          |
+| IPRanges               | lord-alfred          | [Home Page](https://github.com/lord-alfred/ipranges)                                      | [CC0 1.0](https://github.com/lord-alfred/ipranges/blob/main/LICENSE)                 | everything else   |
 
 ## GeoSite
 | Source                      | Maintainer           | Home Page                                                      | License                                                                         | Category     |
@@ -384,10 +477,11 @@ All rights are reserved for All upstream sources used in this project according 
 | URLhaus                     | abuse.ch             | [Home Page](https://urlhaus.abuse.ch)                          | [CC0](https://urlhaus.abuse.ch/api/#tos)                                        | malware      |
 | Phishing URL Blocklist      | malware-filter Group | [Home Page](https://gitlab.com/malware-filter/phishing-filter) | [MIT](https://gitlab.com/malware-filter/phishing-filter/-/blob/main/LICENSE)    | phishing     |
 | NoCoin adblock list         | hoshsadiq            | [Home Page](https://github.com/hoshsadiq/adblock-nocoin-list)  | [MIT](https://github.com/hoshsadiq/adblock-nocoin-list/blob/master/LICENSE)     | cryptominers |
+| Unified Hosts               | StevenBlack          | [Home Page](https://github.com/StevenBlack/hosts)              | [MIT](https://github.com/StevenBlack/hosts/blob/master/license.txt)             | social, nsfw |
 
 # :warning: Disclaimer
 This repository is not affiliated, associated, authorized, endorsed by, or in any way officially connected to any of the aforementioned resources, websites, services, or any entity which this may concern, in any way.  
-The data in this repository is gathered from publicly available resources and is provided as-is, intended for informational purposes only with no guarantee of accuracy, liability or availability. We are not responsible for any harm or damage that may arise from using the data in this repository, and you, as the user, are the sole responsible for using it.
+The data in this repository is gathered from publicly available resources and is provided as-is, intended for informational purposes only with no guarantee of accuracy, liability or availability and We are not responsible for any harm or damage that may arise from using the data in this repository. Please do your research before using any data from this repository.
 
 # :pray: Special Thanks
 - All maintainers that mentioned in this project.
