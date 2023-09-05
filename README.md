@@ -114,6 +114,7 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 ## Meta GeoIP
 > [!NOTE]
 > Only available in Clash.Meta .  
+
 GeoIP database in Clash.Meta format.  
 - `geoip.metadb`  
   Same as [GeoIP](https://github.com/Chocolate4U/Iran-v2ray-rules#geoip) but in Clash.Meta format.
