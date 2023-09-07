@@ -5,10 +5,10 @@
 </picture>
 
 <p align="center">
-<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Chocolate4U/Iran-clash-rules/release.yml?style=flat-square&logo=github">
-<img alt="GitHub release" src="https://flat.badgen.net/github/release/Chocolate4U/Iran-clash-rules?cache=300">
-<img alt="GitHub Release Date" src="https://flat.badgen.net/github/last-commit/Chocolate4U/Iran-clash-rules/release?label=release%20date&cache=300">
-<img alt="license" src="https://flat.badgen.net/github/license/Chocolate4U/Iran-clash-rules">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Chocolate4U/Iran-clash-rules/release.yml?event=schedule&style=for-the-badge&logo=github&cacheSeconds=3600">
+<img alt="GitHub release" src="https://img.shields.io/github/v/release/Chocolate4U/Iran-clash-rules?style=for-the-badge&cacheSeconds=3600">
+<img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/Chocolate4U/Iran-clash-rules?display_date=published_at&style=for-the-badge&cacheSeconds=3600">
+<img alt="License" src="https://img.shields.io/github/license/Chocolate4U/Iran-clash-rules?style=for-the-badge&color=blue&cacheSeconds=3600">
 </p>
 
 # :writing_hand: Introduction
@@ -25,6 +25,9 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 ## Domain Rules  
 - `ir.txt`, `ir.yaml`  
   Contains non-ir TLD Iranian domains (e.g. `.com` `.net` `.org` etc.) and rules to bypass all `.ir` domains.
+
+- `ir-lite.txt`, `ir-lite.yaml`  
+  Contains Active non-ir TLD Iranian domains (e.g. `.com` `.net` `.org` etc.) and rules to bypass all `.ir` domains.
 
 - `ads.txt`, `ads.yaml`  
   Contains a list of Persian advertisement and tracking domains.
@@ -125,7 +128,11 @@ GeoIP database in Clash.Meta format.
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/github/white"><source media="(prefers-color-scheme: light)" srcset="https://cdn.simpleicons.org/github/dark"><img height="32" width="32" alt="github logo in dark and light mode." src="https://cdn.simpleicons.org/github/dark"></picture> From GitHub  
 - IR  
   - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.txt)  
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.yaml) 
+  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.yaml)
+
+- IR-Lite  
+  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir-lite.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir-lite.txt)  
+  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir-lite.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir-lite.yaml) 
 
 - Category-ads-all  
   - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.txt)  
@@ -170,7 +177,11 @@ GeoIP database in Clash.Meta format.
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/jsdelivr/white"><source media="(prefers-color-scheme: light)" srcset="https://cdn.simpleicons.org/jsdelivr/dark"><img height="32" width="32" alt="github logo in dark and light mode." src="https://cdn.simpleicons.org/jsdelivr/dark"></picture> From jsDelivr CDN
 - IR  
   - `text` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.txt](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.txt)  
-  - `yaml` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.yaml](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.yaml) 
+  - `yaml` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.yaml](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.yaml)
+
+- IR-Lite  
+  - `text` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir-lite.txt](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir-lite.txt)  
+  - `yaml` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir-lite.yaml](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir-lite.yaml) 
 
 - Category-ads-all  
   - `text` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/category-ads-all.txt](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/category-ads-all.txt)  
