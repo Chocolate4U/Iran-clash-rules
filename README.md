@@ -5,9 +5,9 @@
 </picture>
 
 <p align="center">
-<img alt="GitHub Workflow Status" src="https://flat.badgen.net/github/checks/Chocolate4U/Iran-clash-rules/main/build?icon=github">
-<img alt="GitHub release" src="https://flat.badgen.net/github/release/Chocolate4U/Iran-clash-rules">
-<img alt="GitHub Release Date" src="https://flat.badgen.net/github/last-commit/Chocolate4U/Iran-clash-rules/release?label=release%20date">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Chocolate4U/Iran-clash-rules/release.yml?style=flat-square&logo=github">
+<img alt="GitHub release" src="https://flat.badgen.net/github/release/Chocolate4U/Iran-clash-rules?cache=300">
+<img alt="GitHub Release Date" src="https://flat.badgen.net/github/last-commit/Chocolate4U/Iran-clash-rules/release?label=release%20date&cache=300">
 <img alt="license" src="https://flat.badgen.net/github/license/Chocolate4U/Iran-clash-rules">
 </p>
 
