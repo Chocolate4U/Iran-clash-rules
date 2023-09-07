@@ -3,14 +3,14 @@ name: Generate clash rules files
 on:
   workflow_dispatch:
   schedule:
-    - cron: "50 5 * * *"
+    - cron: "50 3 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Go
         uses: actions/setup-go@v4
@@ -29,6 +29,7 @@ jobs:
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip.dat > geoip.dat
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip-lite.dat > geoip-lite.dat
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir.txt > ir.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir-lite.txt > ir-lite.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/private.txt > private.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ads.txt > ads.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/category-ads-all.txt > category-ads-all.txt
@@ -74,6 +75,7 @@ jobs:
       - name: Generate clash text rules
         run: |
           cat ir.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ir.txt
+          cat ir-lite.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ir-lite.txt
           cat private.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/private.txt
           cat ads.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ads.txt
           cat category-ads-all.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/category-ads-all.txt
@@ -109,6 +111,7 @@ jobs:
           prefix="  - '+."
           suffix="'"
           cat ir.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir.yaml
+          cat ir-lite.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir-lite.yaml
           cat private.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/private.yaml
           cat ads.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ads.yaml
           cat category-ads-all.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/category-ads-all.yaml
@@ -155,7 +158,7 @@ jobs:
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git push -f origin release
 
-      - name: Purge jsdelivr CDN
+      - name: Purge jsDelivr CDN
         run: |
           cd release || exit 1
           for file in $(ls); do
