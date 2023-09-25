@@ -108,10 +108,10 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 - `openai.txt`, `openai.yaml`  
   Contains IP addresses of OpenAI and ChatGPT.
 
-- `phishing.txt`, `phishing.yaml`  
+- `phishing-ip.txt`, `phishing-ip.yaml`  
   Contains Phishing IP addresses.
 
-- `malware.txt`, `malware.yaml`  
+- `malware-ip.txt`, `malware-ip.yaml`  
   Contains Active Malware IP addresses.
 
 ## Meta GeoIP
