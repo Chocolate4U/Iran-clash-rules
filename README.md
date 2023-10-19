@@ -69,6 +69,9 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 - `iranserver.txt`, `iranserver.yaml`  
   Contains IP addresses of IranServer.com CDN.
 
+- `parspack.txt`, `parspack.yaml`  
+  Contains IP addresses of ParsPack.com CDN.
+
 - `cloudflare.txt`, `cloudflare.yaml`  
   Contains IP addresses of ClouFlare CDN.
 
@@ -174,6 +177,10 @@ GeoIP database in Clash.Meta format.
   - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.txt)  
   - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.yaml)
 
+- ParsPack  
+  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.txt)  
+  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.yaml)
+
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/jsdelivr/white"><source media="(prefers-color-scheme: light)" srcset="https://cdn.simpleicons.org/jsdelivr/dark"><img height="32" width="32" alt="github logo in dark and light mode." src="https://cdn.simpleicons.org/jsdelivr/dark"></picture> From jsDelivr CDN
 - IR  
   - `text` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.txt](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir.txt)  
@@ -222,6 +229,10 @@ GeoIP database in Clash.Meta format.
 - IranServer  
   - `text` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/iranserver.txt](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/iranserver.txt)  
   - `yaml` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/iranserver.yaml](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/iranserver.yaml)
+
+- ParsPack  
+  - `text` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/parspack.txt](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/parspack.txt)  
+  - `yaml` [https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/parspack.yaml](https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/parspack.yaml)
 
 # :computer: Usage
 ## Clash and Clash.Meta
@@ -307,6 +318,13 @@ rule-providers:
     url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.txt"
     path: ./ruleset/iranserver.txt
     interval: 86400
+  parspack:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.txt"
+    path: ./ruleset/parspack.txt
+    interval: 86400
 
 rules :
   - RULE-SET,private,DIRECT
@@ -318,6 +336,9 @@ rules :
   - RULE-SET,ir,DIRECT
   - RULE-SET,ircidr,DIRECT
   - RULE-SET,arvancloud,DIRECT
+  - RULE-SET,derakcloud,DIRECT
+  - RULE-SET,iranserver,DIRECT
+  - RULE-SET,parspack,DIRECT
   - MATCH,PROXY
 ```
 
@@ -401,6 +422,13 @@ rule-providers:
     url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.yaml"
     path: ./ruleset/iranserver.yaml
     interval: 86400
+  parspack:
+    type: http
+    format: yaml
+    behavior: ipcidr
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.yaml"
+    path: ./ruleset/parspack.yaml
+    interval: 86400
 
 rules :
   - RULE-SET,private,DIRECT
@@ -412,6 +440,9 @@ rules :
   - RULE-SET,ir,DIRECT
   - RULE-SET,ircidr,DIRECT
   - RULE-SET,arvancloud,DIRECT
+  - RULE-SET,derakcloud,DIRECT
+  - RULE-SET,iranserver,DIRECT
+  - RULE-SET,parspack,DIRECT
   - MATCH,PROXY
 ```
 > [!NOTE]
@@ -438,6 +469,9 @@ rules:
   - GEOIP,private,DIRECT,no-resolve
   - GEOIP,ir,DIRECT
   - GEOIP,arvancloud,DIRECT
+  - GEOIP,derakcloud,DIRECT
+  - GEOIP,iranserver,DIRECT
+  - GEOIP,parspack,DIRECT
   - MATCH,PROXY
 ```
 
@@ -467,10 +501,12 @@ All rights are reserved for All upstream sources used in this project according 
 | Source                 | Maintainer           | Home Page                                                                                 | License                                                                              | Category          |
 | ---------------------- | -------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------------- |
 | GeoLite2               | MaxMind              | [Home Page](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data)                 | [CC BY-SA 4.0](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data#license) | ir                |
+| IP2Location LITE       | IP2Location          | [Home Page](https://lite.ip2location.com/ip2location-lite)                                | [CC BY-SA 4.0](https://lite.ip2location.com/terms-of-use)                            | ir                |
 | ITO GOV                | ITO GOV              | [Home Page](https://eservices.ito.gov.ir/Page/IPListMessenger)                            | N/A                                                                                  | ir(messenger IPs) |
 | Arvan Cloud            | Arvan Cloud          | [Home Page](https://www.arvancloud.ir/en/dev/ips)                                         | All rights reserved                                                                  | arvancloud        |
 | Derak Cloud            | Derak Cloud          | [Home Page](https://derak.cloud/لیست-بازه-های-ip)                                         | All rights reserved                                                                  | derakcloud        |
 | IranServer             | IranServer           | [Home Page](https://docs.iranserver.com/irserver-cloud/cdn/allow-iranserver-ip-addresses) | All rights reserved                                                                  | iranserver        |
+| ParsPack               | ParsPack             | [Home Page](https://parspack.com/cdnips.txt)                                              | All rights reserved                                                                  | parspack          |
 | Cloudflare             | Cloudflare           | [Home Page](https://www.cloudflare.com/ips)                                               | All rights reserved                                                                  | cloudflare        |
 | Telegram               | Telegram             | [Home Page](https://core.telegram.org/resources/cidr.txt)                                 | All rights reserved                                                                  | Telegram          |
 | URLhaus                | abuse.ch             | [Home Page](https://urlhaus.abuse.ch)                                                     | [CC0](https://urlhaus.abuse.ch/api/#tos)                                             | malware           |
