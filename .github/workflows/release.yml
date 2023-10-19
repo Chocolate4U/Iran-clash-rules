@@ -43,6 +43,7 @@ jobs:
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/arvancloud.txt > arvancloud.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/derakcloud.txt > derakcloud.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/iranserver.txt > iranserver.txt
+          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/parspack.txt > parspack.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/cloudflare.txt > cloudflare.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/google.txt > google.txt
           curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/amazon.txt > amazon.txt
@@ -90,6 +91,7 @@ jobs:
           cat arvancloud.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/arvancloud.txt
           cat derakcloud.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/derakcloud.txt
           cat iranserver.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/iranserver.txt
+          cat parspack.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/parspack.txt
           cat cloudflare.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/cloudflare.txt
           cat google.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/google.txt
           cat amazon.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/amazon.txt
@@ -127,6 +129,7 @@ jobs:
           cat arvancloud.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/arvancloud.yaml
           cat derakcloud.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/derakcloud.yaml
           cat iranserver.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/iranserver.yaml
+          cat parspack.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/parspack.yaml
           cat cloudflare.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/cloudflare.yaml
           cat google.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/google.yaml
           cat amazon.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/amazon.yaml
