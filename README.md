@@ -20,7 +20,7 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 # :page_with_curl: Categories
 
 > [!IMPORTANT]
-> There are two clash rule formats, `text` and `yaml`. `text` is preferred as it's faster to process by Clash and is supported in Clash Permium 1.15.0+ and clash.Meta 1.14.4+ . If you are using an older version of Clash/Clash.Meta, you should use `yaml` format.
+> There are two clash rule formats, `text` and `yaml`. `text` is preferred as it's faster to process by Clash and is supported in Clash Premium 1.15.0+ and clash.Meta 1.14.4+ . If you are using an older version of Clash/Clash.Meta, you should use `yaml` format.
 
 ## Domain Rules  
 - `ir.txt`, `ir.yaml`  
@@ -61,55 +61,55 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
   Contains a list of local (LAN) IP addresses.
 
 - `arvancloud.txt`, `arvancloud.yaml`  
-  Contains IP addresses of ArvanCloud.ir CDN.
+  Contains the IP addresses of ArvanCloud.ir CDN.
 
 - `derakcloud.txt`, `derakcloud.yaml`  
-  Contains IP addresses of Derak.cloud CDN.
+  Contains the IP addresses of Derak.cloud CDN.
 
 - `iranserver.txt`, `iranserver.yaml`  
-  Contains IP addresses of IranServer.com CDN.
+  Contains the IP addresses of IranServer.com CDN.
 
 - `parspack.txt`, `parspack.yaml`  
-  Contains IP addresses of ParsPack.com CDN.
+  Contains the IP addresses of ParsPack.com CDN.
 
 - `cloudflare.txt`, `cloudflare.yaml`  
-  Contains IP addresses of ClouFlare CDN.
+  Contains the IP addresses of Cloudflare CDN.
 
 - `google.txt`, `google.yaml`  
-  Contains IP addresses of Google, GoogleCloud and GoogleBot.
+  Contains the IP addresses of Google, GoogleCloud and GoogleBot.
 
 - `amazon.txt`, `amazon.yaml`  
-  Contains IP addresses of Amazon and Amazon Web Services (AWS).
+  Contains the IP addresses of Amazon and Amazon Web Services (AWS).
 
 - `microsoft.txt`, `microsoft.yaml`  
-  Contains IP addresses of Microsoft and Azure Platform.
+  Contains the IP addresses of Microsoft and Azure Platform.
 
 - `bing.txt`, `bing.yaml`  
-  Contains IP addresses of Bing and Bingbot.
+  Contains the IP addresses of Bing and Bingbot.
 
 - `github.txt`, `github.yaml`  
-  Contains IP addresses of GitHub.
+  Contains the IP addresses of GitHub.
 
 - `facebook.txt`, `facebook.yaml`  
-  Contains IP addresses of Meta ecosystem, including Facebook, Instagram and WhatsApp.
+  Contains the IP addresses of the Meta ecosystem, including Facebook, Instagram and WhatsApp.
 
 - `twitter.txt`, `twitter.yaml`  
-  Contains IP addresses of Twitter (now called X!).
+  Contains the IP addresses of Twitter (now called X!).
 
 - `telegram.txt`, `telegram.yaml`  
-  Contains IP addresses of Telegram Messenger.
+  Contains the IP addresses of Telegram Messenger.
 
 - `oracle.txt`, `oracle.yaml`  
-  Contains IP addresses of Oracle Cloud.
+  Contains the IP addresses of Oracle Cloud.
 
 - `digitalocean.txt`, `digitalocean.yaml`  
-  Contains IP addresses of DigitalOcean related services.
+  Contains the IP addresses of DigitalOcean related services.
 
 - `linode.txt`, `linode.yaml`  
-  Contains IP addresses of Linode related services.
+  Contains the IP addresses of Linode related services.
 
 - `openai.txt`, `openai.yaml`  
-  Contains IP addresses of OpenAI and ChatGPT.
+  Contains the IP addresses of OpenAI and ChatGPT.
 
 - `phishing-ip.txt`, `phishing-ip.yaml`  
   Contains Phishing IP addresses.
@@ -119,7 +119,7 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 
 ## Meta GeoIP
 > [!NOTE]
-> Only available in Clash.Meta .  
+> Only available in Clash.Meta.  
 
 GeoIP database in Clash.Meta format.  
 - `geoip.metadb`  
@@ -446,7 +446,7 @@ rules :
   - MATCH,PROXY
 ```
 > [!NOTE]
-> Currently there is problem with "ClashMetaForAndroid" version 2.8.6 and above, in which it can't match android package names thus `- RULE-SET,apps,DIRECT` is completely ineffective for now.
+> Currently there is a problem with "ClashMetaForAndroid" version 2.8.6 and above, in which it can't match Android package names thus `- RULE-SET,apps,DIRECT` is completely ineffective for now.
 
 ## Only CLash.Meta
 Add this to the top of your configuration.  
@@ -476,17 +476,17 @@ rules:
 ```
 
 # :information_desk_person: How is this made?  
-Source files are pulled from [Iran V2Ray Rules](https://github.com/Chocolate4U/Iran-v2ray-rules) and get converted to clash `text` and `yaml` format by a github actions workflow.  
+Source files are pulled from [Iran V2Ray Rules](https://github.com/Chocolate4U/Iran-v2ray-rules) and get converted to clash `text` and `yaml` format by a GitHub actions workflow.  
 `geoip.metadb` and `geoip-lite.metadb` are generated from `geoip.dat` and `geoip-lite.dat` in [Iran-v2ray-rules](https://github.com/Chocolate4U/Iran-v2ray-rules) repository using source code from [metacubex/geo](https://github.com/metacubex/geo).
 
 # :handshake: Contribution
 All contributions are welcome and appreciated. You can contribute to this project in 2 ways:  
-1. Contribute to it's upstream sources  
+1. Contribute to its upstream sources  
    Do you know a Domain that should be bypassed? report it to [Iran Hosted Domains](https://github.com/bootmortis/iran-hosted-domains)  
-   Do you know a persian advertisement domain that should be blocked or a false positive? report it to [PersianBlocker](https://github.com/MasterKia/PersianBlocker)  
-   Do you know... OK you got the idea!  
+   Do you know a Persian advertisement domain that should be blocked or a false positive? report it to [PersianBlocker](https://github.com/MasterKia/PersianBlocker)  
+   Do you know... OK, you got the idea!  
 2. Contribute directly to this project  
-   Report issues, open pull requests, suggest new sources or categories or any idea in general to make this repository more useful for everyone.  
+   Report issues, open pull requests, suggest new sources or categories or any idea, in general, to make this repository more useful for everyone.  
 
 :raising_hand_man: Also one more thing, if this repository was useful to you, kindly leave a :star: up there so this project can be seen by more people.
 
@@ -532,7 +532,7 @@ This repository is not affiliated, associated, authorized, endorsed by, or in an
 The data in this repository is gathered from publicly available resources and is provided as-is, intended for informational purposes only with no guarantee of accuracy, liability or availability and We are not responsible for any harm or damage that may arise from using the data in this repository. Please do your research before using any data from this repository.
 
 # :pray: Special Thanks
-- All maintainers that mentioned in this project.
+- All maintainers that are mentioned in this project.
 - [Clash](https://github.com/Dreamacro/clash)
 - [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta)
 - [Loyalsoldier](https://github.com/Loyalsoldier)
