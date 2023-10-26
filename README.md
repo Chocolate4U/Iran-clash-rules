@@ -329,11 +329,11 @@ rule-providers:
 
 rules :
   - RULE-SET,private,DIRECT,no-resolve
+  - RULE-SET,apps,DIRECT
   - RULE-SET,ads,REJECT
   - RULE-SET,malware,REJECT
   - RULE-SET,phishing,REJECT
   - RULE-SET,cryptominers,REJECT
-  - RULE-SET,apps,DIRECT
   - RULE-SET,ir,DIRECT
   - RULE-SET,ircidr,DIRECT
   - RULE-SET,arvancloud,DIRECT
@@ -433,11 +433,11 @@ rule-providers:
 
 rules :
   - RULE-SET,private,DIRECT,no-resolve
+  - RULE-SET,apps,DIRECT
   - RULE-SET,ads,REJECT
   - RULE-SET,malware,REJECT
   - RULE-SET,phishing,REJECT
   - RULE-SET,cryptominers,REJECT
-  - RULE-SET,apps,DIRECT
   - RULE-SET,ir,DIRECT
   - RULE-SET,ircidr,DIRECT
   - RULE-SET,arvancloud,DIRECT
