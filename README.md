@@ -12,7 +12,7 @@
 </p>
 
 # :writing_hand: Introduction
-This is an Enhanced and All-in-One set of geo-location routing files optimized for Iranian users to use in Clash/Clash.Meta. 
+An enhanced and All-in-One set of geo-location routing files optimized for Iranian users to use in Clash/Clash.Meta. 
 
 :bulb: For V2Ray geolocation rules please refer to [Iran V2Ray Rules](https://github.com/Chocolate4U/Iran-v2ray-rules)  
 :bulb: For Sing-Box geolocation rules please refer to [Iran Sing-Box Rules](https://github.com/Chocolate4U/Iran-sing-box-rules)
@@ -21,6 +21,10 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 
 > [!IMPORTANT]
 > There are two clash rule formats, `text` and `yaml`. `text` is preferred as it's faster to process by Clash and is supported in Clash Premium 1.15.0+ and clash.Meta 1.14.4+ . If you are using an older version of Clash/Clash.Meta, you should use `yaml` format.
+
+## Classical Rules
+- `apps.txt`, `apps.yaml`  
+  Contains a list of Persian Android apps.
 
 ## Domain Rules  
 - `ir.txt`, `ir.yaml`  
@@ -49,9 +53,6 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 
 - `nsfw.txt`,`nsfw.yaml`
   Contains a list of porn and gambling websites.
-
-- `apps.txt`, `apps.yaml`  
-  contains a list of Persian Android apps.
 
 ## IP Rules  
 - `ircidr.txt`, `ircidr.yaml`  
@@ -119,7 +120,7 @@ This is an Enhanced and All-in-One set of geo-location routing files optimized f
 
 ## Meta GeoIP
 > [!NOTE]
-> Only available in Clash.Meta.  
+> Only usable in Clash.Meta.  
 
 GeoIP database in Clash.Meta format.  
 - `geoip.metadb`  
@@ -327,7 +328,7 @@ rule-providers:
     interval: 86400
 
 rules :
-  - RULE-SET,private,DIRECT
+  - RULE-SET,private,DIRECT,no-resolve
   - RULE-SET,apps,DIRECT
   - RULE-SET,ads,REJECT
   - RULE-SET,malware,REJECT
@@ -431,7 +432,7 @@ rule-providers:
     interval: 86400
 
 rules :
-  - RULE-SET,private,DIRECT
+  - RULE-SET,private,DIRECT,no-resolve
   - RULE-SET,apps,DIRECT
   - RULE-SET,ads,REJECT
   - RULE-SET,malware,REJECT
@@ -459,6 +460,7 @@ geox-url:
 Usage:  
 ```
 rules:
+  - GEOIP,private,DIRECT,no-resolve
   - GEOSITE,category-ads-all,REJECT
   - GEOSITE,malware,REJECT
   - GEOSITE,phishing,REJECT
@@ -466,7 +468,6 @@ rules:
   - GEOIP,malware,REJECT
   - GEOIP,phishing,REJECT
   - GEOSITE,ir,DIRECT
-  - GEOIP,private,DIRECT,no-resolve
   - GEOIP,ir,DIRECT
   - GEOIP,arvancloud,DIRECT
   - GEOIP,derakcloud,DIRECT
