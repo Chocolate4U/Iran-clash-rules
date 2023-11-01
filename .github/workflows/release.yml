@@ -2,20 +2,25 @@ name: Generate clash rules files
 
 on:
   workflow_dispatch:
+    inputs:
+      PRE_RELEASE:
+        description: "Set as pre-release"
+        required: false
+        default: "false"
   schedule:
     - cron: "15 1 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.21'
+          go-version: "1.21"
           cache: false
 
       - name: Set ENV variables
@@ -66,13 +71,14 @@ jobs:
 
       - name: Create release directory
         run: mkdir release
-      
+
       - name: Generate Meta-geoip
         run: |
           go install -v github.com/metacubex/geo/cmd/geo@master
           $(go env GOPATH)/bin/geo convert ip -i v2ray -o meta -f geoip.metadb ./geoip.dat
           $(go env GOPATH)/bin/geo convert ip -i v2ray -o meta -f geoip-lite.metadb ./geoip-lite.dat
-          mv geoip.metadb geoip-lite.metadb release
+          $(go env GOPATH)/bin/geo convert ip -i v2ray -o meta -f security-ip.metadb ./security-ip.dat
+          mv geoip.metadb geoip-lite.metadb security-ip.metadb release
 
       - name: Generate clash text rules
         run: |
@@ -145,14 +151,15 @@ jobs:
           cat openai.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/openai.yaml
           cat malware-ip.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware-ip.yaml
           cat phishing-ip.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing-ip.yaml
-  
+
       - name: Generate Release Notes
-        run: | 
+        run: |
           echo "* Updated on ${{ env.RELEASE_DATE }}" > RELEASE_NOTES
           echo "* Based on [Iran-v2ray-rules](https://github.com/Chocolate4U/Iran-v2ray-rules)" >> RELEASE_NOTES
           echo "* Android Apps -> ${{ env.TOTAL_APPS }}" >> RELEASE_NOTES
 
       - name: Push assets to release branch
+        if: ${{ inputs.PRE_RELEASE == 'false' }}
         run: |
           cd release || exit 1
           git init
@@ -165,6 +172,7 @@ jobs:
           git push -f origin release
 
       - name: Purge jsDelivr CDN
+        if: ${{ inputs.PRE_RELEASE == 'false' }}
         run: |
           cd release || exit 1
           for file in $(ls); do
@@ -178,12 +186,13 @@ jobs:
           tag_name: ${{ env.TAG_NAME }}
           body_path: RELEASE_NOTES
           draft: false
-          prerelease: false
+          prerelease: ${{ inputs.PRE_RELEASE }}
           files: ./release/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Clean older releases
+        if: ${{ inputs.PRE_RELEASE == 'false' }}
         uses: dev-drprasad/delete-older-releases@v0.3.2
         with:
           keep_latest: 7
