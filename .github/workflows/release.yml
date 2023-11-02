@@ -31,39 +31,40 @@ jobs:
 
       - name: Fetch source lists from Iran-v2ray-rules
         run: |
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip.dat > geoip.dat
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip-lite.dat > geoip-lite.dat
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir.txt > ir.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir-lite.txt > ir-lite.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ads.txt > ads.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/category-ads-all.txt > category-ads-all.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/malware.txt > malware.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/phishing.txt > phishing.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/cryptominers.txt > cryptominers.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/social.txt > social.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/nsfw.txt > nsfw.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-Android-Packages/main/packages.md | sed -e 's/\*\*Package name\:\*\*//g' -e '/#/d' -e '/^\s*$/d' | awk '{$1=$1};1' | sort -u > apps.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/ir.txt > ircidr.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/private.txt > private.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/arvancloud.txt > arvancloud.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/derakcloud.txt > derakcloud.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/iranserver.txt > iranserver.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/parspack.txt > parspack.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/cloudflare.txt > cloudflare.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/google.txt > google.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/amazon.txt > amazon.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/microsoft.txt > microsoft.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/bing.txt > bing.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/github.txt > github.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/facebook.txt > facebook.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/twitter.txt > twitter.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/telegram.txt > telegram.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/oracle.txt > oracle.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/digitalocean.txt > digitalocean.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/linode.txt > linode.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/openai.txt > openai.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/malware.txt > malware-ip.txt
-          curl -Ssl https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/phishing.txt > phishing-ip.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip.dat
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip-lite.dat
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/security-ip.dat
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ir-lite.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/ads.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/category-ads-all.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/malware.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/phishing.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/cryptominers.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/social.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/nsfw.txt
+          curl -sSL https://raw.githubusercontent.com/Chocolate4U/Iran-Android-Packages/main/packages.md | sed -e 's/\*\*Package name\:\*\*//g' -e '/#/d' -e '/^\s*$/d' | awk '{$1=$1};1' | sort -u > apps.txt
+          curl -sSL https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/ir.txt > ircidr.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/private.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/arvancloud.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/derakcloud.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/iranserver.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/parspack.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/cloudflare.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/google.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/amazon.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/microsoft.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/bing.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/github.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/facebook.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/twitter.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/telegram.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/oracle.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/digitalocean.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/linode.txt
+          curl -sSLO https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/openai.txt
+          curl -sSL https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/malware.txt > malware-ip.txt
+          curl -sSL https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/phishing.txt > phishing-ip.txt
 
       - name: Calculate Number of rules
         run: |
