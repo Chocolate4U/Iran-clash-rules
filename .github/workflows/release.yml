@@ -50,6 +50,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Get IR ASN numbers from RIPE
+        run: |
+          curl -sSLO ftp://ftp.ripe.net/ripe/stats/delegated-ripencc-latest
+          awk -F\| '{if ($2 == "IR" && $3 == "asn" ) print $4}' < delegated-ripencc-latest > irasn.txt
+
+
       - name: Generate clash text rules
         run: |
           cat ./source/ir.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ir.txt
@@ -61,8 +67,9 @@ jobs:
           cat ./source/cryptominers.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/cryptominers.txt
           cat ./source/social.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/social.txt
           cat ./source/nsfw.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/nsfw.txt
-          cat apps.txt | sed -e 's/^/PROCESS-NAME,/' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/apps.txt
+          cat ./apps.txt | sed -e 's/^/PROCESS-NAME,/' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/apps.txt
           cat ./source/text/ir.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ircidr.txt
+          cat ./irasn.txt | sed -e 's/^/IP-ASN,/' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/irasn.txt
           cat ./source/text/private.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/private.txt
           cat ./source/text/arvancloud.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/arvancloud.txt
           cat ./source/text/derakcloud.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/derakcloud.txt
@@ -88,6 +95,7 @@ jobs:
         run: |
           apps_prefix="  - PROCESS-NAME,"
           cidr_prefix="  - '"
+          asn_prefix="  - IP-ASN,"
           prefix="  - '+."
           suffix="'"
           cat ./source/ir.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir.yaml
@@ -99,8 +107,9 @@ jobs:
           cat ./source/cryptominers.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/cryptominers.yaml
           cat ./source/social.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/social.yaml
           cat ./source/nsfw.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/nsfw.yaml
-          cat apps.txt | awk -v prefix="$apps_prefix" '{print prefix $0}' | sed '1s/^/payload:\n/' > release/apps.yaml
+          cat ./apps.txt | awk -v prefix="$apps_prefix" '{print prefix $0}' | sed '1s/^/payload:\n/' > release/apps.yaml
           cat ./source/text/ir.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ircidr.yaml
+          cat ./irasn.txt | awk -v prefix="$asn_prefix" '{print prefix $0}' | sed '1s/^/payload:\n/' > release/irasn.yaml
           cat ./source/text/private.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/private.yaml
           cat ./source/text/arvancloud.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/arvancloud.yaml
           cat ./source/text/derakcloud.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/derakcloud.yaml

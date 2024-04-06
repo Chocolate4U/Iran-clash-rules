@@ -28,6 +28,9 @@ An enhanced and All-in-One set of geo-location routing files optimized for Irani
 - `apps.txt`, `apps.yaml`  
   Contains a list of Persian Android apps.
 
+- `irasn.txt`, `irasn.yaml`  
+  Contains a list of Iran ASN numbers.
+
 ## Domain Rules
 
 - `ir.txt`, `ir.yaml`  
@@ -142,67 +145,72 @@ GeoIP database in Clash.Meta format.
 
 - IR
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.yaml)
 
 - IR-Lite
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir-lite.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir-lite.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir-lite.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir-lite.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir-lite.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir-lite.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir-lite.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir-lite.yaml)
 
 - Category-ads-all
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/category-ads-all.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/category-ads-all.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/category-ads-all.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/category-ads-all.yaml)
 
 - Malware
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.yaml)
 
 - Phishing
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/phishing.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/phishing.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/phishing.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/phishing.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.yaml)
 
 - CryptoMiners
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/cryptominers.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/cryptominers.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/cryptominers.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/cryptominers.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.yaml)
 
 - Apps
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/apps.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/apps.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/apps.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/apps.yaml)
+
+- IRASN
+
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.yaml)
 
 - IRcidr
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.yaml)
 
 - Private
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.yaml)
 
 - ArvanCloud
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/arvancloud.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/arvancloud.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/arvancloud.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/arvancloud.yaml)
 
 - DerakCloud
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/derakcloud.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/derakcloud.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/derakcloud.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/derakcloud.yaml)
 
 - IranServer
 
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/iranserver.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/iranserver.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/iranserver.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/iranserver.yaml)
 
 - ParsPack
-  - `text` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.txt](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.txt)
-  - `yaml` [https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.yaml](https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.yaml)
+  - `text` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/parspack.txt](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/parspack.txt)
+  - `yaml` [https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/parspack.yaml](https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/parspack.yaml)
 
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/jsdelivr/white"><source media="(prefers-color-scheme: light)" srcset="https://cdn.simpleicons.org/jsdelivr/dark"><img height="32" width="32" alt="github logo in dark and light mode." src="https://cdn.simpleicons.org/jsdelivr/dark"></picture> From jsDelivr CDN
 
@@ -284,85 +292,64 @@ rule-providers:
     type: http
     format: text
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.txt"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.txt"
     path: ./ruleset/ir.txt
     interval: 86400
   ads:
     type: http
     format: text
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ads.txt"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ads.txt"
     path: ./ruleset/ads.txt
     interval: 86400
   malware:
     type: http
     format: text
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware.txt"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.txt"
     path: ./ruleset/malware.txt
     interval: 86400
   phishing:
     type: http
     format: text
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/phishing.txt"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt"
     path: ./ruleset/phishing.txt
     interval: 86400
   cryptominers:
     type: http
     format: text
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/cryptominers.txt"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.txt"
     path: ./ruleset/cryptominers.txt
     interval: 86400
   apps:
     type: http
     format: text
     behavior: classical
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/apps.txt"
     path: ./ruleset/apps.txt
     interval: 86400
   ircidr:
     type: http
     format: text
     behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.txt"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.txt"
     path: ./ruleset/ircidr.txt
     interval: 86400
   private:
     type: http
     format: text
     behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.txt"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.txt"
     path: ./ruleset/private.txt
     interval: 86400
-  arvancloud:
+  irasn:
     type: http
     format: text
-    behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.txt"
-    path: ./ruleset/arvancloud.txt
-    interval: 86400
-  derakcloud:
-    type: http
-    format: text
-    behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.txt"
-    path: ./ruleset/derakcloud.txt
-    interval: 86400
-  iranserver:
-    type: http
-    format: text
-    behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.txt"
-    path: ./ruleset/iranserver.txt
-    interval: 86400
-  parspack:
-    type: http
-    format: text
-    behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.txt"
-    path: ./ruleset/parspack.txt
+    behavior: classical
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.txt"
+    path: ./ruleset/irasn.txt
     interval: 86400
 
 rules :
@@ -374,10 +361,7 @@ rules :
   - RULE-SET,cryptominers,REJECT
   - RULE-SET,ir,DIRECT
   - RULE-SET,ircidr,DIRECT
-  - RULE-SET,arvancloud,DIRECT
-  - RULE-SET,derakcloud,DIRECT
-  - RULE-SET,iranserver,DIRECT
-  - RULE-SET,parspack,DIRECT
+  - RULE-SET,irasn,DIRECT
   - MATCH,PROXY
 ```
 
@@ -389,85 +373,64 @@ rule-providers:
     type: http
     format: yaml
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir.yaml"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.yaml"
     path: ./ruleset/ir.yaml
     interval: 86400
   ads:
     type: http
     format: yaml
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ads.yaml"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ads.yaml"
     path: ./ruleset/ads.yaml
     interval: 86400
   malware:
     type: http
     format: yaml
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware.yaml"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.yaml"
     path: ./ruleset/malware.yaml
     interval: 86400
   phishing:
     type: http
     format: yaml
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/phishing.yaml"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.yaml"
     path: ./ruleset/phishing.yaml
     interval: 86400
   cryptominers:
     type: http
     format: yaml
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/cryptominers.yaml"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.yaml"
     path: ./ruleset/cryptominers.yaml
     interval: 86400
   apps:
     type: http
     format: yaml
     behavior: classical
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/apps.yaml"
     path: ./ruleset/apps.yaml
     interval: 86400
   ircidr:
     type: http
     format: yaml
     behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.yaml"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.yaml"
     path: ./ruleset/ircidr.yaml
     interval: 86400
   private:
     type: http
     format: yaml
     behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.yaml"
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.yaml"
     path: ./ruleset/private.yaml
     interval: 86400
-  arvancloud:
+  irasn:
     type: http
     format: yaml
-    behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.yaml"
-    path: ./ruleset/arvancloud.yaml
-    interval: 86400
-  derakcloud:
-    type: http
-    format: yaml
-    behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.yaml"
-    path: ./ruleset/derakcloud.yaml
-    interval: 86400
-  iranserver:
-    type: http
-    format: yaml
-    behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.yaml"
-    path: ./ruleset/iranserver.yaml
-    interval: 86400
-  parspack:
-    type: http
-    format: yaml
-    behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.yaml"
-    path: ./ruleset/parspack.yaml
+    behavior: classical
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.yaml"
+    path: ./ruleset/irasn.yaml
     interval: 86400
 
 rules :
@@ -479,10 +442,7 @@ rules :
   - RULE-SET,cryptominers,REJECT
   - RULE-SET,ir,DIRECT
   - RULE-SET,ircidr,DIRECT
-  - RULE-SET,arvancloud,DIRECT
-  - RULE-SET,derakcloud,DIRECT
-  - RULE-SET,iranserver,DIRECT
-  - RULE-SET,parspack,DIRECT
+  - RULE-SET,irasn,DIRECT
   - MATCH,PROXY
 ```
 
@@ -495,9 +455,9 @@ Add this to the top of your configuration.
 
 ```
 geox-url:
-  geoip: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat"
-  geosite: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat"
-  mmdb: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/geoip.metadb"
+  geoip: "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip.dat"
+  geosite: "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geosite.dat"
+  mmdb: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/geoip.metadb"
 ```
 
 Usage:
@@ -513,10 +473,6 @@ rules:
   - GEOIP,phishing,REJECT
   - GEOSITE,ir,DIRECT
   - GEOIP,ir,DIRECT
-  - GEOIP,arvancloud,DIRECT
-  - GEOIP,derakcloud,DIRECT
-  - GEOIP,iranserver,DIRECT
-  - GEOIP,parspack,DIRECT
   - MATCH,PROXY
 ```
 
