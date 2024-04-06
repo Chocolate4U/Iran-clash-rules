@@ -58,78 +58,11 @@ jobs:
 
       - name: Generate clash text rules
         run: |
-          cat ./source/ir.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ir.txt
-          cat ./source/ir-lite.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ir-lite.txt
-          cat ./source/ads.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ads.txt
-          cat ./source/category-ads-all.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/category-ads-all.txt
-          cat ./source/malware.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/malware.txt
-          cat ./source/phishing.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/phishing.txt
-          cat ./source/cryptominers.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/cryptominers.txt
-          cat ./source/social.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/social.txt
-          cat ./source/nsfw.txt | sed -e 's/^/+./' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/nsfw.txt
-          cat ./apps.txt | sed -e 's/^/PROCESS-NAME,/' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/apps.txt
-          cat ./source/text/ir.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/ircidr.txt
-          cat ./irasn.txt | sed -e 's/^/IP-ASN,/' -e '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/irasn.txt
-          cat ./source/text/private.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/private.txt
-          cat ./source/text/arvancloud.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/arvancloud.txt
-          cat ./source/text/derakcloud.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/derakcloud.txt
-          cat ./source/text/iranserver.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/iranserver.txt
-          cat ./source/text/parspack.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/parspack.txt
-          cat ./source/text/cloudflare.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/cloudflare.txt
-          cat ./source/text/google.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/google.txt
-          cat ./source/text/amazon.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/amazon.txt
-          cat ./source/text/microsoft.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/microsoft.txt
-          cat ./source/text/bing.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/bing.txt
-          cat ./source/text/github.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/github.txt
-          cat ./source/text/facebook.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/facebook.txt
-          cat ./source/text/twitter.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/twitter.txt
-          cat ./source/text/telegram.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/telegram.txt
-          cat ./source/text/oracle.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/oracle.txt
-          cat ./source/text/digitalocean.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/digitalocean.txt
-          cat ./source/text/linode.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/linode.txt
-          cat ./source/text/openai.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/openai.txt
-          cat ./source/text/malware.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/malware-ip.txt
-          cat ./source/text/phishing.txt | sed '1s/^/# clash rules in text format, require clash permium 1.15.0+ or clash-meta 1.14.4+\n/' > release/phishing-ip.txt
+          ./scripts/generate-clash-text-rules.sh
 
       - name: Generate clash yaml rules
         run: |
-          apps_prefix="  - PROCESS-NAME,"
-          cidr_prefix="  - '"
-          asn_prefix="  - IP-ASN,"
-          prefix="  - '+."
-          suffix="'"
-          cat ./source/ir.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir.yaml
-          cat ./source/ir-lite.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir-lite.yaml
-          cat ./source/ads.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ads.yaml
-          cat ./source/category-ads-all.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/category-ads-all.yaml
-          cat ./source/malware.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware.yaml
-          cat ./source/phishing.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing.yaml
-          cat ./source/cryptominers.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/cryptominers.yaml
-          cat ./source/social.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/social.yaml
-          cat ./source/nsfw.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/nsfw.yaml
-          cat ./apps.txt | awk -v prefix="$apps_prefix" '{print prefix $0}' | sed '1s/^/payload:\n/' > release/apps.yaml
-          cat ./source/text/ir.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ircidr.yaml
-          cat ./irasn.txt | awk -v prefix="$asn_prefix" '{print prefix $0}' | sed '1s/^/payload:\n/' > release/irasn.yaml
-          cat ./source/text/private.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/private.yaml
-          cat ./source/text/arvancloud.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/arvancloud.yaml
-          cat ./source/text/derakcloud.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/derakcloud.yaml
-          cat ./source/text/iranserver.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/iranserver.yaml
-          cat ./source/text/parspack.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/parspack.yaml
-          cat ./source/text/cloudflare.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/cloudflare.yaml
-          cat ./source/text/google.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/google.yaml
-          cat ./source/text/amazon.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/amazon.yaml
-          cat ./source/text/microsoft.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/microsoft.yaml
-          cat ./source/text/bing.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/bing.yaml
-          cat ./source/text/github.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/github.yaml
-          cat ./source/text/facebook.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/facebook.yaml
-          cat ./source/text/twitter.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/twitter.yaml
-          cat ./source/text/telegram.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/telegram.yaml
-          cat ./source/text/oracle.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/oracle.yaml
-          cat ./source/text/digitalocean.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/digitalocean.yaml
-          cat ./source/text/linode.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/linode.yaml
-          cat ./source/text/openai.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/openai.yaml
-          cat ./source/text/malware.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware-ip.yaml
-          cat ./source/text/phishing.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing-ip.yaml
+          ./scripts/generate-clash-yaml-rules.sh
 
       - name: Generate Release Notes
         run: |
