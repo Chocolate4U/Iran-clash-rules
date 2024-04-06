@@ -58,10 +58,12 @@ jobs:
 
       - name: Generate clash text rules
         run: |
+          chmod +x ./scripts/generate-clash-text-rules.sh
           ./scripts/generate-clash-text-rules.sh
 
       - name: Generate clash yaml rules
         run: |
+          chmod +x ./scripts/generate-clash-yaml-rules.sh
           ./scripts/generate-clash-yaml-rules.sh
 
       - name: Generate Release Notes
