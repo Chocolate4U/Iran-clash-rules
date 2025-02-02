@@ -5,15 +5,15 @@ cidr_prefix="  - '"
 asn_prefix="  - IP-ASN,"
 prefix="  - '+."
 suffix="'"
-cat ./source/ir.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir.yaml
-cat ./source/ir-lite.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir-lite.yaml
-cat ./source/ads.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ads.yaml
-cat ./source/category-ads-all.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/category-ads-all.yaml
-cat ./source/malware.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware.yaml
-cat ./source/phishing.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing.yaml
-cat ./source/cryptominers.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/cryptominers.yaml
-cat ./source/social.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/social.yaml
-cat ./source/nsfw.txt | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/nsfw.yaml
+cat ./source/ir.txt | sed 's/^domain://' | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir.yaml
+cat ./source/ir-lite.txt | sed 's/^domain://' | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ir-lite.yaml
+cat ./source/ads.txt | sed 's/^domain://' | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ads.yaml
+cat ./source/category-ads-all.txt | sed 's/^domain://' | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/category-ads-all.yaml
+cat ./source/malware.txt | sed 's/^domain://' | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/malware.yaml
+cat ./source/phishing.txt | sed 's/^domain://' | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/phishing.yaml
+cat ./source/cryptominers.txt | sed 's/^domain://' | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/cryptominers.yaml
+cat ./source/social.txt | sed 's/^domain://' | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/social.yaml
+cat ./source/nsfw.txt | sed 's/^domain://' | awk -v prefix="$prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/nsfw.yaml
 cat ./apps.txt | awk -v prefix="$apps_prefix" '{print prefix $0}' | sed '1s/^/payload:\n/' > release/apps.yaml
 cat ./source/text/ir.txt | awk -v prefix="$cidr_prefix" '{print prefix $0}' | awk -v suffix="$suffix" '{print $0 suffix}' | sed '1s/^/payload:\n/' > release/ircidr.yaml
 cat ./irasn.txt | awk -v prefix="$asn_prefix" '{print prefix $0}' | sed '1s/^/payload:\n/' > release/irasn.yaml
