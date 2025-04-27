@@ -65,6 +65,13 @@ jobs:
         run: |
           chmod +x ./scripts/generate-clash-yaml-rules.sh
           ./scripts/generate-clash-yaml-rules.sh
+      
+      - name: Generate clash mrs rules
+        run: |
+          chmod +x ./scripts/generate-clash-mrs-rules.sh
+          ./scripts/generate-clash-mrs-rules.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate Release Notes
         run: |
